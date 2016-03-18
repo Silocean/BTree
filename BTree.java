@@ -19,10 +19,10 @@ public class BTree {
      */
     private class Node {
         private int n; // 关键字个数
-        private boolean isLeaf; //是否是叶子节点
-        private int[] keys = new int[2 * T]; //关键字数组
+        private boolean isLeaf; // 是否是叶子节点
+        private int[] keys = new int[2 * T]; // 关键字数组
         private String[] values = new String[2 * T]; // 值数组
-        private Node[] childs = new Node[2 * T + 1];//子节点数组
+        private Node[] childs = new Node[2 * T + 1]; // 子节点数组
     }
 
     /**
@@ -137,7 +137,7 @@ public class BTree {
             node.childs[j + 1] = node.childs[j];
         }
         node.childs[i + 1] = right;
-        for (int j = node.n; j >= i; j--) { // 把left的中间关键字提升到node来分隔left和right
+        for (int j = node.n; j >= i; j--) { // 把left的中间key和value提升到node来分隔left和right
             node.keys[j + 1] = node.keys[j];
             node.values[j + 1] = node.values[j];
         }
